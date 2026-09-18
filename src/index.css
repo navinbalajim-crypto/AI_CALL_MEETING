@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-dark: #080B16;
+    --surface-dark: #101526;
+    --surface-elevated: #151C30;
+    --primary: #5B6CFF;
+    --accent: #8B5CF6;
+    --ai-accent: #4FD1FF;
+  }
+
+  body {
+    background-color: #080B16;
+    color: #F8FAFC;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Custom scrollbar for dark UI */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080B16;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1C2540;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5B6CFF;
+  }
+}
+
+/* Glass & Surface Utilities */
+.glass-panel {
+  background: rgba(16, 21, 38, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-panel-elevated {
+  background: rgba(21, 28, 48, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-panel-interactive {
+  background: rgba(16, 21, 38, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-interactive:hover {
+  background: rgba(25, 33, 56, 0.85);
+  border-color: rgba(91, 108, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(91, 108, 255, 0.2);
+}
+
+/* Ambient Radial Glows */
+.bg-radial-gradient {
+  background: radial-gradient(circle at 50% 0%, rgba(91, 108, 255, 0.15) 0%, rgba(139, 92, 246, 0.05) 45%, transparent 70%);
+}
+
+.bg-ai-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(79, 209, 255, 0.12) 0%, rgba(91, 108, 255, 0.05) 50%, transparent 80%);
+}
+
+/* Semantic Glow borders */
+.border-glow-commitment {
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 20px -3px rgba(16, 185, 129, 0.2);
+}
+
+.border-glow-ai {
+  border: 1px solid rgba(79, 209, 255, 0.4);
+  box-shadow: 0 0 25px -4px rgba(79, 209, 255, 0.25);
+}
+
+.border-glow-alert {
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  box-shadow: 0 0 20px -3px rgba(245, 158, 11, 0.2);
+}
+
+/* Print Styles for Meeting Report Export */
+@media print {
+  body {
+    background-color: white !important;
+    color: #0F172A !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .glass-panel, .glass-panel-elevated {
+    background: transparent !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: none !important;
+  }
+}
