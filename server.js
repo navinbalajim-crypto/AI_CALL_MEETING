@@ -156,8 +156,8 @@ app.get('/api/network-info', (req, res) => {
   });
 });
 
-// Audio Upload & Processing Pipeline Endpoint
-app.post('/api/audio/upload', upload.single('audio'), async (req, res) => {
+// Audio Upload & Processing Pipeline Endpoint (supports both /api/audio/upload and /audio/upload)
+app.post(['/api/audio/upload', '/audio/upload', '/api/upload', '/upload'], upload.single('audio'), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: "NO_FILE_UPLOADED", message: "No audio file provided." });
@@ -235,8 +235,8 @@ app.post('/api/audio/upload', upload.single('audio'), async (req, res) => {
   }
 });
 
-// Audio Job Status Polling Endpoint (allows browser refresh recovery)
-app.get('/api/audio/jobs/:jobId', (req, res) => {
+// Audio Job Status Polling Endpoint (supports both /api/audio/jobs and /audio/jobs)
+app.get(['/api/audio/jobs/:jobId', '/audio/jobs/:jobId', '/api/jobs/:jobId', '/jobs/:jobId'], (req, res) => {
   const job = processingJobManager.getJob(req.params.jobId);
   if (!job) {
     return res.status(404).json({ error: "JOB_NOT_FOUND", message: "Processing job not found." });
