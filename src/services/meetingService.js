@@ -17,29 +17,50 @@ function getStoredMeetings() {
 }
 
 export const meetingService = {
-  getAllMeetings() {
+  async getAllMeetings() {
+    try {
+      const serverMeetings = await api.get('/meetings');
+      if (Array.isArray(serverMeetings) && serverMeetings.length > 0) {
+        localStorage.setItem(MEETINGS_STORAGE_KEY, JSON.stringify(serverMeetings));
+        return serverMeetings;
+      }
+    } catch (e) {
+      // fallback to local cache
+    }
     return getStoredMeetings();
   },
 
-  getMeetingById(id) {
+  async getMeetingByCode(code) {
+    const formatted = (code || '').trim().toUpperCase();
+    
+    // First check local cache
     const list = getStoredMeetings();
-    return list.find(m => m.id === id || m.code === id) || null;
+    const localMatch = list.find(m => m.code.toUpperCase() === formatted || m.id === formatted);
+
+    // Also query backend server so phone can find meetings created on other devices!
+    try {
+      const remoteMeeting = await api.get(`/meetings/${formatted}`);
+      if (remoteMeeting && remoteMeeting.code) {
+        // Update local cache with remote meeting
+        const existing = list.filter(m => m.code.toUpperCase() !== formatted);
+        localStorage.setItem(MEETINGS_STORAGE_KEY, JSON.stringify([remoteMeeting, ...existing]));
+        return remoteMeeting;
+      }
+    } catch (err) {
+      console.log(`[MeetingService] Remote lookup note for ${formatted}:`, err.message);
+    }
+
+    return localMatch || null;
   },
 
-  getMeetingByCode(code) {
-    const formatted = code.trim().toUpperCase();
-    const list = getStoredMeetings();
-    return list.find(m => m.code.toUpperCase() === formatted) || null;
-  },
-
-  createMeeting(data) {
+  async createMeeting(data) {
     const randomSuffix = Math.random().toString(36).substring(2, 7).toUpperCase();
     const code = `G13-${randomSuffix}`;
     const newMeeting = {
       id: `meet-${Date.now()}`,
       code: code,
       title: data.title || 'Untitled AI Sync',
-      client: data.client || 'Internal Team',
+      client: data.client || 'Enterprise Client',
       organization: data.organization || 'General Engineering',
       date: 'Just now',
       duration: '0 min',
@@ -63,21 +84,37 @@ export const meetingService = {
       }
     };
 
+    // Save locally
     const current = getStoredMeetings();
     const updated = [newMeeting, ...current];
     localStorage.setItem(MEETINGS_STORAGE_KEY, JSON.stringify(updated));
+
+    // Post to backend server for cross-device visibility
+    try {
+      await api.post('/meetings', newMeeting);
+    } catch (e) {
+      console.warn('[MeetingService] Offline save only, backend not reached');
+    }
+
     return newMeeting;
   },
 
-  updateMeeting(id, updates) {
-    const list = getStoredMeetings();
-    const index = list.findIndex(m => m.id === id || m.code === id);
-    if (index !== -1) {
-      list[index] = { ...list[index], ...updates };
-      localStorage.setItem(MEETINGS_STORAGE_KEY, JSON.stringify(list));
-      return list[index];
+  async joinMeeting(code, participant) {
+    const formatted = (code || '').trim().toUpperCase();
+    try {
+      const res = await api.post(`/meetings/${formatted}/join`, { participant });
+      return res;
+    } catch (e) {
+      return { success: true };
     }
-    return null;
+  },
+
+  async getNetworkInfo() {
+    try {
+      return await api.get('/network-info');
+    } catch (e) {
+      return { localIp: window.location.hostname, port: 3000 };
+    }
   }
 };
 

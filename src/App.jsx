@@ -41,14 +41,19 @@ function AppContent({ currentView, setCurrentView }) {
   const [joinModalOpen, setJoinModalOpen] = useState(false);
   const [demoTourOpen, setDemoTourOpen] = useState(false);
 
+  const [joinCodeFromUrl, setJoinCodeFromUrl] = useState('');
+
   // Hash-based navigation and deep link listener
   useEffect(() => {
     const handleHash = () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash.startsWith('join=')) {
+      const rawHash = window.location.hash.replace('#', '');
+      if (rawHash.startsWith('join=')) {
+        const queryPart = rawHash.split('&')[0];
+        const code = queryPart.replace('join=', '');
+        setJoinCodeFromUrl(code);
         setJoinModalOpen(true);
-      } else if (hash && ['landing', 'auth', 'voice-onboarding', 'dashboard', 'live', 'upload', 'manual', 'report', 'actions', 'history', 'settings'].includes(hash)) {
-        setCurrentView(hash);
+      } else if (rawHash && ['landing', 'auth', 'voice-onboarding', 'dashboard', 'live', 'upload', 'manual', 'report', 'actions', 'history', 'settings'].includes(rawHash)) {
+        setCurrentView(rawHash);
       }
     };
 
@@ -162,6 +167,7 @@ function AppContent({ currentView, setCurrentView }) {
         isOpen={joinModalOpen}
         onClose={() => setJoinModalOpen(false)}
         onJoined={handleMeetingJoined}
+        initialCode={joinCodeFromUrl}
       />
 
       <EvidenceModal

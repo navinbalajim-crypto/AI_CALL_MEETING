@@ -62,17 +62,19 @@ export const MeetingProvider = ({ children }) => {
     setSelectedContradiction(null);
   };
 
-  const createMeeting = (data) => {
-    const newMeet = meetingService.createMeeting(data);
+  const createMeeting = async (data) => {
+    const newMeet = await meetingService.createMeeting(data);
     setMeetings((prev) => [newMeet, ...prev]);
     setActiveMeeting(newMeet);
+    socketService.connect(newMeet.code);
     return newMeet;
   };
 
-  const joinMeetingByCode = (code) => {
-    const found = meetingService.getMeetingByCode(code);
+  const joinMeetingByCode = async (code) => {
+    const found = await meetingService.getMeetingByCode(code);
     if (found) {
       setActiveMeeting(found);
+      socketService.connect(found.code);
       return { success: true, meeting: found };
     }
     return { success: false, error: 'Meeting code not found or session has expired.' };

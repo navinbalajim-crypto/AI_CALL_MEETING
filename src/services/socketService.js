@@ -1,7 +1,7 @@
 import { io } from 'socket.io-client';
 import { LIVE_DEMO_TRANSCRIPT } from '../data/demoTranscripts';
 
-const SOCKET_SERVER_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
+const SOCKET_SERVER_URL = import.meta.env.VITE_SOCKET_URL || (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:5000');
 
 class SocketService {
   constructor() {

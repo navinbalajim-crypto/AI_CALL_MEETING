@@ -1,5 +1,5 @@
-// Base API Client configured for REST backend with mock fallback
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Base API Client configured for REST backend with proxy & mock fallback
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
 class ApiClient {
   constructor(baseUrl = API_BASE_URL) {
