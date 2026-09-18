@@ -187,7 +187,10 @@ export const ExistingMeetingPage = ({ onNavigate }) => {
             status: 'completed',
             audioUrl: `/uploads/audio/${job.filePath?.split(/[\\/]/).pop()}`,
             report: job.report,
+            summary: job.report?.executiveSummary || '',
             transcript: job.transcript,
+            audioMetrics: job.report?.audioMetrics || job.vadResult?.audioMetrics || null,
+            rawDurationSec: job.report?.audioMetrics?.durationSec || job.vadResult?.totalDurationSec || 0,
             participants: job.speakers?.map(s => ({
               id: s.speakerId,
               name: s.possibleIdentity || s.label,
@@ -438,9 +441,9 @@ export const ExistingMeetingPage = ({ onNavigate }) => {
             <Button variant="outline" onClick={handleReset} icon={RotateCcw}>
               Try Different File
             </Button>
-            {file && !validationError && (
+            {file && (
               <Button variant="primary" onClick={handleStartProcessing}>
-                Retry Processing
+                Retry Upload & Analysis
               </Button>
             )}
           </div>

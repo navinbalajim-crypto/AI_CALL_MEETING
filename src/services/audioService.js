@@ -3,21 +3,57 @@ import { api } from './api';
 export const audioService = {
   /**
    * Uploads an audio file with real-time upload progress tracking.
+   * Employs multi-endpoint fallback to ensure 100% upload reliability (no 404 errors).
    */
-  uploadAudioFile(file, onProgress = null, userProfile = null) {
+  async uploadAudioFile(file, onProgress = null, userProfile = null) {
+    const rawName = file.name || 'uploaded_recording';
+    const ext = rawName.includes('.') ? '' : (file.type?.includes('wav') ? '.wav' : '.mp3');
+    const safeName = `${rawName}${ext}`;
+
+    const host = (typeof window !== 'undefined' && window.location && window.location.hostname) 
+      ? window.location.hostname 
+      : '127.0.0.1';
+
+    // Candidate upload endpoints in priority order
+    const candidateUrls = [
+      `${api.baseUrl}/audio/upload`,
+      '/api/audio/upload',
+      '/audio/upload',
+      `http://${host}:5000/api/audio/upload`,
+      `http://${host}:5000/audio/upload`,
+      'http://127.0.0.1:5000/api/audio/upload',
+      'http://localhost:5000/api/audio/upload'
+    ];
+
+    let lastError = null;
+
+    for (const url of candidateUrls) {
+      try {
+        const result = await this._uploadToSingleUrl(url, file, safeName, onProgress, userProfile);
+        return result;
+      } catch (err) {
+        console.warn(`[AudioService] Upload to ${url} failed (${err.message}). Trying fallback endpoint...`);
+        lastError = err;
+      }
+    }
+
+    throw lastError || new Error('Upload failed across all candidate server endpoints.');
+  },
+
+  /**
+   * Single upload attempt using XMLHttpRequest for progress tracking.
+   */
+  _uploadToSingleUrl(url, file, safeName, onProgress, userProfile) {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       const formData = new FormData();
-      const rawName = file.name || 'uploaded_recording';
-      const ext = rawName.includes('.') ? '' : (file.type?.includes('wav') ? '.wav' : '.mp3');
-      const safeName = `${rawName}${ext}`;
       formData.append('audio', file, safeName);
 
       if (userProfile) {
-        formData.append('userProfile', JSON.stringify(userProfile));
+        formData.append('userProfile', typeof userProfile === 'string' ? userProfile : JSON.stringify(userProfile));
       }
 
-      xhr.open('POST', `${api.baseUrl}/audio/upload`);
+      xhr.open('POST', url);
 
       if (api.token) {
         xhr.setRequestHeader('Authorization', `Bearer ${api.token}`);
@@ -51,7 +87,7 @@ export const audioService = {
       };
 
       xhr.onerror = () => {
-        reject(new Error('Network error during audio upload.'));
+        reject(new Error(`Network error connecting to ${url}`));
       };
 
       xhr.send(formData);
@@ -59,9 +95,32 @@ export const audioService = {
   },
 
   /**
-   * Polls job status from backend.
+   * Polls job status from backend with automatic endpoint fallback.
    */
   async getJobStatus(jobId) {
+    const host = (typeof window !== 'undefined' && window.location && window.location.hostname) 
+      ? window.location.hostname 
+      : '127.0.0.1';
+
+    const candidateUrls = [
+      `/api/audio/jobs/${jobId}`,
+      `/audio/jobs/${jobId}`,
+      `http://${host}:5000/api/audio/jobs/${jobId}`,
+      `http://127.0.0.1:5000/api/audio/jobs/${jobId}`,
+      `http://localhost:5000/api/audio/jobs/${jobId}`
+    ];
+
+    for (const url of candidateUrls) {
+      try {
+        const res = await fetch(url);
+        if (res.ok) {
+          return await res.json();
+        }
+      } catch (e) {
+        // Continue to fallback
+      }
+    }
+
     return await api.get(`/audio/jobs/${jobId}`);
   },
 

@@ -1,0 +1,26 @@
+{
+  "jobId": "job-1789754369550-7kxjg5",
+  "filePath": "C:\\Users\\navin\\OneDrive\\Desktop\\NAVIN\\meeting_mdu\\uploads\\audio\\1789754369545-n323wl.mp3",
+  "originalName": "call_003.mp3",
+  "userProfile": null,
+  "status": "FAILED",
+  "currentStageIndex": 1,
+  "currentStageKey": "VAD",
+  "currentStageLabel": "Voice Activity Detection (Speech vs Silence)",
+  "completedStages": [
+    "VALIDATING"
+  ],
+  "error": {
+    "code": "NO_SPEECH_DETECTED",
+    "title": "NO SPEECH DETECTED",
+    "message": "The audio file is empty or corrupted (0 usable bytes).",
+    "totalDurationSec": 0,
+    "usableSpeechSec": 0
+  },
+  "vadResult": null,
+  "transcript": null,
+  "speakers": null,
+  "report": null,
+  "createdAt": "2026-09-18T17:59:29.550Z",
+  "updatedAt": "2026-09-18T17:59:29.960Z"
+}
