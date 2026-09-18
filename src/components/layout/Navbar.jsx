@@ -47,7 +47,7 @@ export const Navbar = ({ currentView, onNavigate, onOpenCreate, onLaunchDemo }) 
         {/* Logo & Product Tagline */}
         <div className="flex items-center gap-6">
           <button
-            onClick={() => handleNav(isAuthenticated ? 'dashboard' : 'landing')}
+            onClick={() => handleNav(isAuthenticated ? 'dashboard' : 'auth')}
             className="flex items-center gap-2.5 group text-left focus:outline-none"
           >
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary via-primary-hover to-accent flex items-center justify-center text-white shadow-glow-sm group-hover:shadow-glow-md transition-all">
