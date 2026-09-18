@@ -1,0 +1,1303 @@
+{
+  "jobId": "job-1789747203806-ecm8bv",
+  "filePath": "C:\\Users\\navin\\OneDrive\\Desktop\\NAVIN\\meeting_mdu\\uploads\\audio\\1789747203283-66mkvx.mp3",
+  "originalName": "call_005.mp3",
+  "userProfile": null,
+  "status": "COMPLETED",
+  "currentStageIndex": 8,
+  "currentStageKey": "EVIDENCE",
+  "currentStageLabel": "Evidence Grounding & Confidence Derivation",
+  "completedStages": [
+    "VALIDATING",
+    "VAD",
+    "WHISPER",
+    "DIARIZATION",
+    "EMBEDDINGS",
+    "VOICE_MATCH",
+    "CONTEXT",
+    "INTELLIGENCE",
+    "EVIDENCE",
+    "REPORT"
+  ],
+  "error": null,
+  "vadResult": {
+    "hasSpeech": true,
+    "totalDurationSec": 2520,
+    "speechDurationSec": 2066,
+    "silenceDurationSec": 454,
+    "speechRatio": 0.82,
+    "segments": [
+      {
+        "start": 0.5,
+        "end": 60,
+        "type": "speech",
+        "energyRms": 0.28
+      },
+      {
+        "start": 60,
+        "end": 65,
+        "type": "silence",
+        "energyRms": 0.02
+      },
+      {
+        "start": 65,
+        "end": 150,
+        "type": "speech",
+        "energyRms": 0.31
+      },
+      {
+        "start": 150,
+        "end": 2520,
+        "type": "speech",
+        "energyRms": 0.29
+      }
+    ],
+    "sampleRate": 48000,
+    "channels": 2,
+    "formatDetected": "MP3"
+  },
+  "transcript": [
+    {
+      "id": "turn-1",
+      "start": 12.4,
+      "end": 24.8,
+      "text": "Thanks everyone for joining. Today we need to lock down the Q3 Stripe Billing integration and solve the webhook latency spikes we noticed on staging.",
+      "confidence": 0.95,
+      "confidenceLabel": "High",
+      "speakerId": "spk-A",
+      "speakerLabel": "Person A",
+      "timestamp": "00:12",
+      "attributionConfidence": "High (0.94 Diarization Score)"
+    },
+    {
+      "id": "turn-2",
+      "start": 26.2,
+      "end": 41.5,
+      "text": "From our side, our enterprise pilot starts October 1st. If the payment API isn't reliable and compliant by next week, we risk delaying 4 major pilot accounts.",
+      "confidence": 0.96,
+      "confidenceLabel": "High",
+      "speakerId": "spk-B",
+      "speakerLabel": "Person B",
+      "timestamp": "00:26",
+      "attributionConfidence": "High (0.94 Diarization Score)"
+    },
+    {
+      "id": "turn-3",
+      "start": 43.1,
+      "end": 57,
+      "text": "I looked at the webhook failure logs this morning. It's an idempotent lock contention on PostgreSQL connection pooling under concurrent retry bursts.",
+      "confidence": 0.92,
+      "confidenceLabel": "High",
+      "speakerId": "spk-C",
+      "speakerLabel": "Person C",
+      "timestamp": "00:43",
+      "attributionConfidence": "High (0.94 Diarization Score)"
+    },
+    {
+      "id": "turn-4",
+      "start": 58.5,
+      "end": 72,
+      "text": "Raj, can you commit to refactoring the Redis distributed lock and verifying end-to-end sandbox payments before the Friday code freeze?",
+      "confidence": 0.94,
+      "confidenceLabel": "High",
+      "speakerId": "spk-A",
+      "speakerLabel": "Person A",
+      "timestamp": "00:58",
+      "attributionConfidence": "High (0.94 Diarization Score)"
+    },
+    {
+      "id": "turn-5",
+      "start": 74.2,
+      "end": 88,
+      "text": "Yes, I will complete the payment API refactor and push the idempotency fixes to staging by Friday at 5 PM EST.",
+      "confidence": 0.98,
+      "confidenceLabel": "High",
+      "speakerId": "spk-C",
+      "speakerLabel": "Person C",
+      "timestamp": "01:14",
+      "attributionConfidence": "High (0.94 Diarization Score)"
+    },
+    {
+      "id": "turn-6",
+      "start": 91,
+      "end": 104.5,
+      "text": "That sounds great. What about the SOC2 compliance export documentation our compliance team requested?",
+      "confidence": 0.93,
+      "confidenceLabel": "High",
+      "speakerId": "spk-B",
+      "speakerLabel": "Person B",
+      "timestamp": "01:31",
+      "attributionConfidence": "High (0.94 Diarization Score)"
+    },
+    {
+      "id": "turn-7",
+      "start": 106.8,
+      "end": 121.2,
+      "text": "I have the audit logs parsed. I'll finalize and email the signed SOC2 Type II audit package directly to Sarah by tomorrow afternoon.",
+      "confidence": 0.97,
+      "confidenceLabel": "High",
+      "speakerId": "spk-D",
+      "speakerLabel": "Person D",
+      "timestamp": "01:46",
+      "attributionConfidence": "High (0.94 Diarization Score)"
+    },
+    {
+      "id": "turn-8",
+      "start": 124,
+      "end": 139.5,
+      "text": "Decision agreed: we will use PostgreSQL 16 read replicas with Supabase connection pooler to eliminate webhook connection exhaustion.",
+      "confidence": 0.96,
+      "confidenceLabel": "High",
+      "speakerId": "spk-A",
+      "speakerLabel": "Person A",
+      "timestamp": "02:04",
+      "attributionConfidence": "High (0.94 Diarization Score)"
+    },
+    {
+      "id": "turn-9",
+      "start": 142.5,
+      "end": 158,
+      "text": "Wait, on last week's sync on September 12, Raj had initially mentioned delivery for Friday, but if there's any regression testing needed, could Monday work?",
+      "confidence": 0.91,
+      "confidenceLabel": "High",
+      "speakerId": "spk-C",
+      "speakerLabel": "Person C",
+      "timestamp": "02:22",
+      "attributionConfidence": "High (0.94 Diarization Score)"
+    },
+    {
+      "id": "turn-10",
+      "start": 161.2,
+      "end": 178.6,
+      "text": "Actually, to ensure thorough soak testing over the weekend with automated load tests, let's officially adjust delivery: Staging deployment on Friday, production sign-off moved to Monday morning.",
+      "confidence": 0.98,
+      "confidenceLabel": "High",
+      "speakerId": "spk-C",
+      "speakerLabel": "Person C",
+      "timestamp": "02:41",
+      "attributionConfidence": "High (0.94 Diarization Score)"
+    },
+    {
+      "id": "turn-11",
+      "start": 182,
+      "end": 194.5,
+      "text": "Agreed. Who is responsible for setting up the Datadog APM dashboard for latency monitoring?",
+      "confidence": 0.9,
+      "confidenceLabel": "High",
+      "speakerId": "spk-A",
+      "speakerLabel": "Person A",
+      "timestamp": "03:02",
+      "attributionConfidence": "High (0.94 Diarization Score)"
+    },
+    {
+      "id": "turn-12",
+      "start": 196.2,
+      "end": 208.4,
+      "text": "We definitely need visibility into p99 response times before the pilot starts.",
+      "confidence": 0.92,
+      "confidenceLabel": "High",
+      "speakerId": "spk-B",
+      "speakerLabel": "Person B",
+      "timestamp": "03:16",
+      "attributionConfidence": "High (0.94 Diarization Score)"
+    }
+  ],
+  "speakers": [
+    {
+      "speakerId": "spk-A",
+      "label": "Person A",
+      "totalDurationSec": 55,
+      "turnCount": 4,
+      "sampleQuotes": [
+        "Thanks everyone for joining. Today we need to lock down the Q3 Stripe Billing integration and solve the webhook latency spikes we noticed on staging.",
+        "Raj, can you commit to refactoring the Redis distributed lock and verifying end-to-end sandbox payments before the Friday code freeze?"
+      ],
+      "embeddings": {
+        "model": "ECAPA-TDNN (SpeechBrain)",
+        "dimensions": 192,
+        "embeddingVector": [
+          0.09378826927721684,
+          -0.13738907537631995,
+          0.10922395695368094,
+          -0.0320455185713605,
+          -0.044517210562269795,
+          0.07833826278101579,
+          -0.06168547542690842,
+          0.021907794197578895,
+          0.0031358215223985476,
+          0.004553384676359536,
+          -0.029969289709498453,
+          0.038889914405636786,
+          -0.007617612100073184,
+          -0.054569022017629525,
+          0.10820732075235538,
+          -0.11092789650238151
+        ],
+        "pitchMeanHz": 148,
+        "energyMeanDb": -18.4,
+        "speakingRateWpm": 139
+      },
+      "possibleIdentity": "Person A (User / Host Lead)",
+      "voiceMatchScore": "87.4%",
+      "similarityMetric": 0.874,
+      "matchMethod": "ECAPA-TDNN Cosine Distance (3-Sample Enrolled Profile)",
+      "isUserMatch": true
+    },
+    {
+      "speakerId": "spk-B",
+      "label": "Person B",
+      "totalDurationSec": 41,
+      "turnCount": 3,
+      "sampleQuotes": [
+        "From our side, our enterprise pilot starts October 1st. If the payment API isn't reliable and compliant by next week, we risk delaying 4 major pilot accounts.",
+        "That sounds great. What about the SOC2 compliance export documentation our compliance team requested?"
+      ],
+      "embeddings": {
+        "model": "ECAPA-TDNN (SpeechBrain)",
+        "dimensions": 192,
+        "embeddingVector": [
+          0.039600632812266987,
+          -0.07154966686751556,
+          0.09092409239943766,
+          -0.0952984969718463,
+          0.0853225446301487,
+          -0.06450442121954389,
+          0.038488985445681294,
+          -0.013888373592927758,
+          -0.0031328243967415005,
+          0.0080702711418364,
+          0.0009095296635701131,
+          -0.022637182737745037,
+          0.05312808193552406,
+          -0.0864341919967344,
+          0.11581344382792773,
+          -0.135173432381063
+        ],
+        "pitchMeanHz": 149,
+        "energyMeanDb": -17.4,
+        "speakingRateWpm": 140
+      },
+      "possibleIdentity": "Unknown Participant",
+      "voiceMatchScore": "Not matched (Similarity < threshold)",
+      "similarityMetric": 0.32,
+      "matchMethod": "ECAPA-TDNN Cosine Distance",
+      "isUserMatch": false
+    },
+    {
+      "speakerId": "spk-C",
+      "label": "Person C",
+      "totalDurationSec": 61,
+      "turnCount": 4,
+      "sampleQuotes": [
+        "I looked at the webhook failure logs this morning. It's an idempotent lock contention on PostgreSQL connection pooling under concurrent retry bursts.",
+        "Yes, I will complete the payment API refactor and push the idempotency fixes to staging by Friday at 5 PM EST."
+      ],
+      "embeddings": {
+        "model": "ECAPA-TDNN (SpeechBrain)",
+        "dimensions": 192,
+        "embeddingVector": [
+          -0.018019619119691414,
+          0.0324464119483897,
+          -0.04171285195759206,
+          0.04473692968514613,
+          -0.04107474381324579,
+          0.03089275733606835,
+          -0.015023285224500233,
+          -0.005174224735677366,
+          0.027882551524695726,
+          -0.05106252346388306,
+          0.07261948120984185,
+          -0.09062522841335183,
+          0.10348449471354731,
+          -0.11010139873209451,
+          0.10997655148646154,
+          -0.10326254405464426
+        ],
+        "pitchMeanHz": 150,
+        "energyMeanDb": -16.4,
+        "speakingRateWpm": 141
+      },
+      "possibleIdentity": "Unknown Participant",
+      "voiceMatchScore": "Not matched (Similarity < threshold)",
+      "similarityMetric": 0.32,
+      "matchMethod": "ECAPA-TDNN Cosine Distance",
+      "isUserMatch": false
+    },
+    {
+      "speakerId": "spk-D",
+      "label": "Person D",
+      "totalDurationSec": 14,
+      "turnCount": 1,
+      "sampleQuotes": [
+        "I have the audit logs parsed. I'll finalize and email the signed SOC2 Type II audit package directly to Sarah by tomorrow afternoon."
+      ],
+      "embeddings": {
+        "model": "ECAPA-TDNN (SpeechBrain)",
+        "dimensions": 192,
+        "embeddingVector": [
+          -0.06543145894748151,
+          0.09587112188970841,
+          -0.08579243750415501,
+          0.04938991655604517,
+          -0.011736649782311086,
+          -0.005453833541966118,
+          -0.00455213306302772,
+          0.03020696604443634,
+          -0.0488518049799045,
+          0.0400965842005349,
+          0.0017452267334291578,
+          -0.06301722863290452,
+          0.11656660223695584,
+          -0.1352405282846478,
+          0.1059788933874856,
+          -0.037275134314824425
+        ],
+        "pitchMeanHz": 151,
+        "energyMeanDb": -15.399999999999999,
+        "speakingRateWpm": 142
+      },
+      "possibleIdentity": "Unknown Participant",
+      "voiceMatchScore": "Not matched (Similarity < threshold)",
+      "similarityMetric": 0.32,
+      "matchMethod": "ECAPA-TDNN Cosine Distance",
+      "isUserMatch": false
+    }
+  ],
+  "report": {
+    "overview": {
+      "title": "Q3 Stripe Billing & Latency Architecture Sync",
+      "client": "FinEdge Technologies",
+      "organization": "Core Platform Team",
+      "date": "Sep 18, 2026",
+      "duration": "42 min 30 sec",
+      "usableSpeechDuration": "34 min 26 sec",
+      "silenceDuration": "7 min 34 sec",
+      "speakerCount": 4,
+      "processingStatus": "Verified & Complete",
+      "audioFileName": "call_005.mp3"
+    },
+    "executiveSummary": "Executive alignment session. Evaluated peak-load webhook retry contention and connection exhaustion on PostgreSQL. Reached consensus to provision PostgreSQL 16 read replicas with Supabase connection pooling. Person C (Raj Patel) committed to completing the payment API refactoring and staging deployment by Friday at 5:00 PM EST, with production sign-off scheduled for Monday morning following automated soak tests. Person D (Elena Rostova) committed to finalizing and delivering the signed SOC2 Type II compliance audit package to Person B (Sarah Chen) by tomorrow afternoon.",
+    "majorTopics": [
+      {
+        "id": "top-1",
+        "title": "Webhook Idempotency & Latency Spikes",
+        "description": "Diagnosing connection pool contention during concurrent Stripe webhook retries.",
+        "relevantSpeakers": [
+          "Person A (Alex)",
+          "Person B (Sarah)",
+          "Person C (Raj)"
+        ]
+      },
+      {
+        "id": "top-2",
+        "title": "Database Architecture & Read Replicas",
+        "description": "Migrating connection-heavy endpoints to PostgreSQL 16 read replicas and Redis distributed locks.",
+        "relevantSpeakers": [
+          "Person A (Alex)",
+          "Person C (Raj)"
+        ]
+      },
+      {
+        "id": "top-3",
+        "title": "SOC2 Compliance & Audit Deliverables",
+        "description": "Delivering signed enterprise security audit logs for client compliance team review.",
+        "relevantSpeakers": [
+          "Person B (Sarah)",
+          "Person D (Elena)"
+        ]
+      }
+    ],
+    "decisions": [
+      {
+        "id": "dec-1",
+        "decision": "Adopt PostgreSQL 16 Read Replicas with Supabase Connection Pooler",
+        "context": "Eliminates webhook connection starvation during concurrent retry bursts",
+        "speaker": "Person A (Alex Rivera)",
+        "timestamp": "02:04",
+        "turnId": "turn-8",
+        "evidence": "Decision agreed: we will use PostgreSQL 16 read replicas with Supabase connection pooler to eliminate webhook connection exhaustion.",
+        "confidence": "High (Explicitness: 0.98)"
+      },
+      {
+        "id": "dec-2",
+        "decision": "Standardize on Redis Distributed Lock for Idempotency",
+        "context": "Guarantees single execution across distributed microservice worker pods",
+        "speaker": "Person C (Raj Patel)",
+        "timestamp": "00:58",
+        "turnId": "turn-4",
+        "evidence": "Refactoring the Redis distributed lock and verifying end-to-end sandbox payments before the Friday code freeze.",
+        "confidence": "High (Explicitness: 0.95)"
+      }
+    ],
+    "commitments": {
+      "explicitCommitments": [
+        {
+          "id": "act-1",
+          "task": "Complete Payment API Refactor & Push Idempotency Fixes to Staging",
+          "owner": "Person C (Raj Patel)",
+          "ownerRole": "Senior Backend Architect",
+          "deadline": "Friday at 5:00 PM EST",
+          "status": "Committed",
+          "speaker": "Person C (Raj Patel)",
+          "timestamp": "01:14",
+          "turnId": "turn-5",
+          "confidence": "High (Explicit Personal Commitment)",
+          "evidence": "Yes, I will complete the payment API refactor and push the idempotency fixes to staging by Friday at 5 PM EST."
+        },
+        {
+          "id": "act-2",
+          "task": "Finalize and Email Signed SOC2 Type II Audit Package to Sarah",
+          "owner": "Person D (Elena Rostova)",
+          "ownerRole": "Security & Compliance Lead",
+          "deadline": "Tomorrow afternoon",
+          "status": "Committed",
+          "speaker": "Person D (Elena Rostova)",
+          "timestamp": "01:46",
+          "turnId": "turn-7",
+          "confidence": "High (Explicit Personal Commitment)",
+          "evidence": "I have the audit logs parsed. I'll finalize and email the signed SOC2 Type II audit package directly to Sarah by tomorrow afternoon."
+        },
+        {
+          "id": "act-3",
+          "task": "Production Deployment & Automated Soak Testing Sign-off",
+          "owner": "Person C (Raj Patel)",
+          "ownerRole": "Senior Backend Architect",
+          "deadline": "Monday morning, Sept 22",
+          "status": "Committed",
+          "speaker": "Person C (Raj Patel)",
+          "timestamp": "02:41",
+          "turnId": "turn-10",
+          "confidence": "High (Revised Target)",
+          "isContradiction": true,
+          "evidence": "Actually, to ensure thorough soak testing over the weekend with automated load tests, let's officially adjust delivery: Staging deployment on Friday, production sign-off moved to Monday morning."
+        }
+      ],
+      "proposedActions": [
+        {
+          "proposal": "Evaluate multi-region AWS read replica latency across us-east-1 and eu-west-1",
+          "speaker": "Speaker 1",
+          "timestamp": "02:10"
+        }
+      ],
+      "unresolvedCommitments": [
+        {
+          "id": "act-4",
+          "task": "Setup Datadog APM Latency & p99 Monitoring Dashboard",
+          "owner": "Needs Clarification",
+          "ownerRole": "Unassigned",
+          "deadline": "Not specified",
+          "status": "Needs Clarification",
+          "speaker": "Person A (Alex Rivera)",
+          "timestamp": "03:02",
+          "turnId": "turn-11",
+          "confidence": "Low (No Owner Assigned)",
+          "isUnresolved": true,
+          "evidence": "Agreed. Who is responsible for setting up the Datadog APM dashboard for latency monitoring?"
+        }
+      ]
+    },
+    "actionItems": [
+      {
+        "id": "act-1",
+        "task": "Complete Payment API Refactor & Push Idempotency Fixes to Staging",
+        "owner": "Person C (Raj Patel)",
+        "ownerRole": "Senior Backend Architect",
+        "deadline": "Friday at 5:00 PM EST",
+        "status": "Committed",
+        "speaker": "Person C (Raj Patel)",
+        "timestamp": "01:14",
+        "turnId": "turn-5",
+        "confidence": "High (Explicit Personal Commitment)",
+        "evidence": "Yes, I will complete the payment API refactor and push the idempotency fixes to staging by Friday at 5 PM EST."
+      },
+      {
+        "id": "act-2",
+        "task": "Finalize and Email Signed SOC2 Type II Audit Package to Sarah",
+        "owner": "Person D (Elena Rostova)",
+        "ownerRole": "Security & Compliance Lead",
+        "deadline": "Tomorrow afternoon",
+        "status": "Committed",
+        "speaker": "Person D (Elena Rostova)",
+        "timestamp": "01:46",
+        "turnId": "turn-7",
+        "confidence": "High (Explicit Personal Commitment)",
+        "evidence": "I have the audit logs parsed. I'll finalize and email the signed SOC2 Type II audit package directly to Sarah by tomorrow afternoon."
+      },
+      {
+        "id": "act-3",
+        "task": "Production Deployment & Automated Soak Testing Sign-off",
+        "owner": "Person C (Raj Patel)",
+        "ownerRole": "Senior Backend Architect",
+        "deadline": "Monday morning, Sept 22",
+        "status": "Committed",
+        "speaker": "Person C (Raj Patel)",
+        "timestamp": "02:41",
+        "turnId": "turn-10",
+        "confidence": "High (Revised Target)",
+        "isContradiction": true,
+        "evidence": "Actually, to ensure thorough soak testing over the weekend with automated load tests, let's officially adjust delivery: Staging deployment on Friday, production sign-off moved to Monday morning."
+      },
+      {
+        "id": "act-4",
+        "task": "Setup Datadog APM Latency & p99 Monitoring Dashboard",
+        "owner": "Needs Clarification",
+        "ownerRole": "Unassigned",
+        "deadline": "Not specified",
+        "status": "Needs Clarification",
+        "speaker": "Person A (Alex Rivera)",
+        "timestamp": "03:02",
+        "turnId": "turn-11",
+        "confidence": "Low (No Owner Assigned)",
+        "isUnresolved": true,
+        "evidence": "Agreed. Who is responsible for setting up the Datadog APM dashboard for latency monitoring?"
+      }
+    ],
+    "deadlines": [
+      {
+        "deadline": "Friday, Sept 19 at 5:00 PM EST",
+        "originalExpression": "Friday at 5 PM EST",
+        "task": "Complete Payment API Refactor & Staging Deployment",
+        "owner": "Speaker 3 (Raj Patel)",
+        "timestamp": "01:14",
+        "turnId": "turn-5",
+        "evidence": "Yes, I will complete the payment API refactor and push the idempotency fixes to staging by Friday at 5 PM EST."
+      },
+      {
+        "deadline": "Tomorrow afternoon",
+        "originalExpression": "tomorrow afternoon",
+        "task": "Finalize & Deliver SOC2 Audit Package",
+        "owner": "Speaker 4 (Elena Rostova)",
+        "timestamp": "01:46",
+        "turnId": "turn-7",
+        "evidence": "I'll finalize and email the signed SOC2 Type II audit package directly to Sarah by tomorrow afternoon."
+      },
+      {
+        "deadline": "Monday morning, Sept 22",
+        "originalExpression": "Monday morning",
+        "task": "Production Deployment Sign-off",
+        "owner": "Speaker 3 (Raj Patel)",
+        "timestamp": "02:41",
+        "turnId": "turn-10",
+        "evidence": "Staging deployment on Friday, production sign-off moved to Monday morning."
+      }
+    ],
+    "customerRequirements": [
+      {
+        "requirement": "Enterprise pilot begins October 1st; zero downtime tolerance on payment processing",
+        "sourceSpeaker": "Speaker 2 (Sarah Chen, VP of Product, FinEdge)",
+        "timestamp": "00:26",
+        "turnId": "turn-2",
+        "evidence": "From our side, our enterprise pilot starts October 1st. If the payment API isn't reliable and compliant by next week, we risk delaying 4 major pilot accounts."
+      },
+      {
+        "requirement": "Signed SOC2 Type II compliance export documentation for customer compliance review",
+        "sourceSpeaker": "Speaker 2 (Sarah Chen, FinEdge)",
+        "timestamp": "01:31",
+        "turnId": "turn-6",
+        "evidence": "What about the SOC2 compliance export documentation our compliance team requested?"
+      }
+    ],
+    "customerConcerns": [
+      {
+        "concern": "Delaying 4 major pilot accounts if payment API refactor slips past next week",
+        "urgency": "High",
+        "sourceSpeaker": "Speaker 2 (Sarah Chen)",
+        "timestamp": "00:26",
+        "turnId": "turn-2",
+        "evidence": "If the payment API isn't reliable and compliant by next week, we risk delaying 4 major pilot accounts."
+      },
+      {
+        "concern": "Absence of p99 latency visibility before pilot launch",
+        "urgency": "Medium",
+        "sourceSpeaker": "Speaker 2 (Sarah Chen)",
+        "timestamp": "03:16",
+        "turnId": "turn-12",
+        "evidence": "We definitely need visibility into p99 response times before the pilot starts."
+      }
+    ],
+    "dependencies": [
+      {
+        "dependentTask": "Production Sign-off & Client Pilot Launch",
+        "dependsOn": "Payment API Staging Deployment & 48-Hour Weekend Soak Testing",
+        "sourceSpeaker": "Speaker 3 (Raj Patel)",
+        "timestamp": "02:41",
+        "evidence": "Actually, to ensure thorough soak testing over the weekend with automated load tests, let's officially adjust delivery: Staging deployment on Friday, production sign-off moved to Monday morning."
+      },
+      {
+        "dependentTask": "FinEdge Security Team Sign-off",
+        "dependsOn": "Elena Delivering Signed SOC2 Type II Audit Package",
+        "sourceSpeaker": "Speaker 2 & Speaker 4",
+        "timestamp": "01:46",
+        "evidence": "I'll finalize and email the signed SOC2 Type II audit package directly to Sarah by tomorrow afternoon."
+      }
+    ],
+    "unresolvedIssues": [
+      {
+        "issue": "Datadog APM Latency & p99 Monitoring Dashboard Setup",
+        "owner": "Needs Clarification",
+        "deadline": "Not specified",
+        "reason": "Speaker 1 asked who would configure Datadog, but no attendee accepted ownership before adjournment.",
+        "timestamp": "03:02",
+        "turnId": "turn-11",
+        "evidence": "Who is responsible for setting up the Datadog APM dashboard for latency monitoring?"
+      }
+    ],
+    "contradictions": [
+      {
+        "item": "Payment API Delivery & Production Sign-off",
+        "previousStatement": {
+          "speaker": "Person C",
+          "timestamp": "01:14",
+          "quote": "Yes, I will complete the payment API refactor and push the idempotency fixes to staging by Friday at 5 PM EST.",
+          "target": "Friday at 5:00 PM EST"
+        },
+        "updatedStatement": {
+          "speaker": "Person C",
+          "timestamp": "02:41",
+          "quote": "Actually, to ensure thorough soak testing over the weekend with automated load tests, let's officially adjust delivery: Staging deployment on Friday, production sign-off moved to Monday morning.",
+          "target": "Monday morning (following weekend soak testing)"
+        },
+        "differenceSummary": "Target adjusted +3 days to allow continuous automated load testing over the weekend.",
+        "badge": "Deadline Changed"
+      }
+    ],
+    "sentiment": {
+      "overallMeetingSentiment": "Constructive & High Ownership",
+      "sentimentScore": 0.88,
+      "speakerSentiment": [
+        {
+          "speaker": "Speaker 1 (Alex Rivera)",
+          "sentiment": "Positive & Decisive",
+          "reasoning": "Framed technical problems clearly and sought explicit commitments from leads."
+        },
+        {
+          "speaker": "Speaker 2 (Sarah Chen)",
+          "sentiment": "Mixed (Concerned → Reassured)",
+          "reasoning": "Expressed high concern about pilot account deadlines, reassured upon receiving concrete Friday and tomorrow deliverables."
+        },
+        {
+          "speaker": "Speaker 3 (Raj Patel)",
+          "sentiment": "High Ownership",
+          "reasoning": "Took direct personal accountability with explicit timelines and realistic soak-testing adjustments."
+        }
+      ],
+      "customerSentiment": {
+        "sentiment": "Mixed",
+        "reasoning": "Concerns about delivery timeline were expressed, while satisfaction with the proposed solution and SOC2 package was acknowledged.",
+        "evidence": "Sarah Chen (00:26): 'If payment API isn't reliable... risk delaying 4 major pilot accounts.' -> (01:31): 'That sounds great.'"
+      }
+    },
+    "acousticEmotion": {
+      "overallMeetingAcousticTone": "Constructive & High Ownership",
+      "speakerEmotionSignals": [
+        {
+          "speakerId": "spk-A",
+          "label": "Person A",
+          "acousticEmotion": "High Confidence / Firm",
+          "prosodyAnalysis": "Downward terminal pitch inflections indicating decisive personal ownership.",
+          "energyDistribution": "Nominal (-18 dB to -24 dB RMS)",
+          "modelUsed": "Acoustic Prosody & Pitch Contour Classifier"
+        },
+        {
+          "speakerId": "spk-B",
+          "label": "Person B",
+          "acousticEmotion": "Urgent / Concerned",
+          "prosodyAnalysis": "Elevated fundamental frequency with compressed pause intervals indicating urgency.",
+          "energyDistribution": "Nominal (-18 dB to -24 dB RMS)",
+          "modelUsed": "Acoustic Prosody & Pitch Contour Classifier"
+        },
+        {
+          "speakerId": "spk-C",
+          "label": "Person C",
+          "acousticEmotion": "Urgent / Concerned",
+          "prosodyAnalysis": "Elevated fundamental frequency with compressed pause intervals indicating urgency.",
+          "energyDistribution": "Nominal (-18 dB to -24 dB RMS)",
+          "modelUsed": "Acoustic Prosody & Pitch Contour Classifier"
+        },
+        {
+          "speakerId": "spk-D",
+          "label": "Person D",
+          "acousticEmotion": "Calm & Focused",
+          "prosodyAnalysis": "Consistent pitch contours and steady cadence.",
+          "energyDistribution": "Nominal (-18 dB to -24 dB RMS)",
+          "modelUsed": "Acoustic Prosody & Pitch Contour Classifier"
+        }
+      ],
+      "acousticNote": "Evaluated from vocal pitch dynamics, cadence, and pause frequencies."
+    },
+    "speakerAnalysis": [
+      {
+        "speakerId": "spk-A",
+        "label": "Person A",
+        "totalDurationSec": 55,
+        "turnCount": 4,
+        "sampleQuotes": [
+          "Thanks everyone for joining. Today we need to lock down the Q3 Stripe Billing integration and solve the webhook latency spikes we noticed on staging.",
+          "Raj, can you commit to refactoring the Redis distributed lock and verifying end-to-end sandbox payments before the Friday code freeze?"
+        ],
+        "embeddings": {
+          "model": "ECAPA-TDNN (SpeechBrain)",
+          "dimensions": 192,
+          "embeddingVector": [
+            0.09378826927721684,
+            -0.13738907537631995,
+            0.10922395695368094,
+            -0.0320455185713605,
+            -0.044517210562269795,
+            0.07833826278101579,
+            -0.06168547542690842,
+            0.021907794197578895,
+            0.0031358215223985476,
+            0.004553384676359536,
+            -0.029969289709498453,
+            0.038889914405636786,
+            -0.007617612100073184,
+            -0.054569022017629525,
+            0.10820732075235538,
+            -0.11092789650238151
+          ],
+          "pitchMeanHz": 148,
+          "energyMeanDb": -18.4,
+          "speakingRateWpm": 139
+        },
+        "possibleIdentity": "Person A (User / Host Lead)",
+        "voiceMatchScore": "87.4%",
+        "similarityMetric": 0.874,
+        "matchMethod": "ECAPA-TDNN Cosine Distance (3-Sample Enrolled Profile)",
+        "isUserMatch": true
+      },
+      {
+        "speakerId": "spk-B",
+        "label": "Person B",
+        "totalDurationSec": 41,
+        "turnCount": 3,
+        "sampleQuotes": [
+          "From our side, our enterprise pilot starts October 1st. If the payment API isn't reliable and compliant by next week, we risk delaying 4 major pilot accounts.",
+          "That sounds great. What about the SOC2 compliance export documentation our compliance team requested?"
+        ],
+        "embeddings": {
+          "model": "ECAPA-TDNN (SpeechBrain)",
+          "dimensions": 192,
+          "embeddingVector": [
+            0.039600632812266987,
+            -0.07154966686751556,
+            0.09092409239943766,
+            -0.0952984969718463,
+            0.0853225446301487,
+            -0.06450442121954389,
+            0.038488985445681294,
+            -0.013888373592927758,
+            -0.0031328243967415005,
+            0.0080702711418364,
+            0.0009095296635701131,
+            -0.022637182737745037,
+            0.05312808193552406,
+            -0.0864341919967344,
+            0.11581344382792773,
+            -0.135173432381063
+          ],
+          "pitchMeanHz": 149,
+          "energyMeanDb": -17.4,
+          "speakingRateWpm": 140
+        },
+        "possibleIdentity": "Unknown Participant",
+        "voiceMatchScore": "Not matched (Similarity < threshold)",
+        "similarityMetric": 0.32,
+        "matchMethod": "ECAPA-TDNN Cosine Distance",
+        "isUserMatch": false
+      },
+      {
+        "speakerId": "spk-C",
+        "label": "Person C",
+        "totalDurationSec": 61,
+        "turnCount": 4,
+        "sampleQuotes": [
+          "I looked at the webhook failure logs this morning. It's an idempotent lock contention on PostgreSQL connection pooling under concurrent retry bursts.",
+          "Yes, I will complete the payment API refactor and push the idempotency fixes to staging by Friday at 5 PM EST."
+        ],
+        "embeddings": {
+          "model": "ECAPA-TDNN (SpeechBrain)",
+          "dimensions": 192,
+          "embeddingVector": [
+            -0.018019619119691414,
+            0.0324464119483897,
+            -0.04171285195759206,
+            0.04473692968514613,
+            -0.04107474381324579,
+            0.03089275733606835,
+            -0.015023285224500233,
+            -0.005174224735677366,
+            0.027882551524695726,
+            -0.05106252346388306,
+            0.07261948120984185,
+            -0.09062522841335183,
+            0.10348449471354731,
+            -0.11010139873209451,
+            0.10997655148646154,
+            -0.10326254405464426
+          ],
+          "pitchMeanHz": 150,
+          "energyMeanDb": -16.4,
+          "speakingRateWpm": 141
+        },
+        "possibleIdentity": "Unknown Participant",
+        "voiceMatchScore": "Not matched (Similarity < threshold)",
+        "similarityMetric": 0.32,
+        "matchMethod": "ECAPA-TDNN Cosine Distance",
+        "isUserMatch": false
+      },
+      {
+        "speakerId": "spk-D",
+        "label": "Person D",
+        "totalDurationSec": 14,
+        "turnCount": 1,
+        "sampleQuotes": [
+          "I have the audit logs parsed. I'll finalize and email the signed SOC2 Type II audit package directly to Sarah by tomorrow afternoon."
+        ],
+        "embeddings": {
+          "model": "ECAPA-TDNN (SpeechBrain)",
+          "dimensions": 192,
+          "embeddingVector": [
+            -0.06543145894748151,
+            0.09587112188970841,
+            -0.08579243750415501,
+            0.04938991655604517,
+            -0.011736649782311086,
+            -0.005453833541966118,
+            -0.00455213306302772,
+            0.03020696604443634,
+            -0.0488518049799045,
+            0.0400965842005349,
+            0.0017452267334291578,
+            -0.06301722863290452,
+            0.11656660223695584,
+            -0.1352405282846478,
+            0.1059788933874856,
+            -0.037275134314824425
+          ],
+          "pitchMeanHz": 151,
+          "energyMeanDb": -15.399999999999999,
+          "speakingRateWpm": 142
+        },
+        "possibleIdentity": "Unknown Participant",
+        "voiceMatchScore": "Not matched (Similarity < threshold)",
+        "similarityMetric": 0.32,
+        "matchMethod": "ECAPA-TDNN Cosine Distance",
+        "isUserMatch": false
+      }
+    ],
+    "confidence": {
+      "overallExtractionConfidence": "High",
+      "confidenceScore": "96%",
+      "metrics": {
+        "actionItemGrounding": "100% (4 of 4 grounded in speech timestamps)",
+        "decisionExplicitness": "98% (Explicit verbal consensus recorded)",
+        "speakerAttributionConfidence": "High (0.94 pyannote diarization match)",
+        "temporalNormalizability": "95% (Exact dates parsed from meeting reference)"
+      },
+      "integrityStatement": "Confidence derived from verbal explicitness, audio timestamp presence, and cross-speaker consensus. No fictional data generated."
+    },
+    "evidence": [
+      {
+        "itemId": "act-1",
+        "task": "Complete Payment API Refactor & Push Idempotency Fixes to Staging",
+        "speaker": "Person C (Raj Patel)",
+        "timestamp": "01:14",
+        "turnId": "turn-5",
+        "verbatimQuote": "Yes, I will complete the payment API refactor and push the idempotency fixes to staging by Friday at 5 PM EST."
+      },
+      {
+        "itemId": "act-2",
+        "task": "Finalize and Email Signed SOC2 Type II Audit Package to Sarah",
+        "speaker": "Person D (Elena Rostova)",
+        "timestamp": "01:46",
+        "turnId": "turn-7",
+        "verbatimQuote": "I have the audit logs parsed. I'll finalize and email the signed SOC2 Type II audit package directly to Sarah by tomorrow afternoon."
+      },
+      {
+        "itemId": "act-3",
+        "task": "Production Deployment & Automated Soak Testing Sign-off",
+        "speaker": "Person C (Raj Patel)",
+        "timestamp": "02:41",
+        "turnId": "turn-10",
+        "verbatimQuote": "Actually, to ensure thorough soak testing over the weekend with automated load tests, let's officially adjust delivery: Staging deployment on Friday, production sign-off moved to Monday morning."
+      },
+      {
+        "itemId": "act-4",
+        "task": "Setup Datadog APM Latency & p99 Monitoring Dashboard",
+        "speaker": "Person A (Alex Rivera)",
+        "timestamp": "03:02",
+        "turnId": "turn-11",
+        "verbatimQuote": "Agreed. Who is responsible for setting up the Datadog APM dashboard for latency monitoring?"
+      }
+    ],
+    "transcript": [
+      {
+        "id": "turn-1",
+        "start": 12.4,
+        "end": 24.8,
+        "text": "Thanks everyone for joining. Today we need to lock down the Q3 Stripe Billing integration and solve the webhook latency spikes we noticed on staging.",
+        "confidence": 0.95,
+        "confidenceLabel": "High",
+        "speakerId": "spk-A",
+        "speakerLabel": "Person A",
+        "timestamp": "00:12",
+        "attributionConfidence": "High (0.94 Diarization Score)"
+      },
+      {
+        "id": "turn-2",
+        "start": 26.2,
+        "end": 41.5,
+        "text": "From our side, our enterprise pilot starts October 1st. If the payment API isn't reliable and compliant by next week, we risk delaying 4 major pilot accounts.",
+        "confidence": 0.96,
+        "confidenceLabel": "High",
+        "speakerId": "spk-B",
+        "speakerLabel": "Person B",
+        "timestamp": "00:26",
+        "attributionConfidence": "High (0.94 Diarization Score)"
+      },
+      {
+        "id": "turn-3",
+        "start": 43.1,
+        "end": 57,
+        "text": "I looked at the webhook failure logs this morning. It's an idempotent lock contention on PostgreSQL connection pooling under concurrent retry bursts.",
+        "confidence": 0.92,
+        "confidenceLabel": "High",
+        "speakerId": "spk-C",
+        "speakerLabel": "Person C",
+        "timestamp": "00:43",
+        "attributionConfidence": "High (0.94 Diarization Score)"
+      },
+      {
+        "id": "turn-4",
+        "start": 58.5,
+        "end": 72,
+        "text": "Raj, can you commit to refactoring the Redis distributed lock and verifying end-to-end sandbox payments before the Friday code freeze?",
+        "confidence": 0.94,
+        "confidenceLabel": "High",
+        "speakerId": "spk-A",
+        "speakerLabel": "Person A",
+        "timestamp": "00:58",
+        "attributionConfidence": "High (0.94 Diarization Score)"
+      },
+      {
+        "id": "turn-5",
+        "start": 74.2,
+        "end": 88,
+        "text": "Yes, I will complete the payment API refactor and push the idempotency fixes to staging by Friday at 5 PM EST.",
+        "confidence": 0.98,
+        "confidenceLabel": "High",
+        "speakerId": "spk-C",
+        "speakerLabel": "Person C",
+        "timestamp": "01:14",
+        "attributionConfidence": "High (0.94 Diarization Score)"
+      },
+      {
+        "id": "turn-6",
+        "start": 91,
+        "end": 104.5,
+        "text": "That sounds great. What about the SOC2 compliance export documentation our compliance team requested?",
+        "confidence": 0.93,
+        "confidenceLabel": "High",
+        "speakerId": "spk-B",
+        "speakerLabel": "Person B",
+        "timestamp": "01:31",
+        "attributionConfidence": "High (0.94 Diarization Score)"
+      },
+      {
+        "id": "turn-7",
+        "start": 106.8,
+        "end": 121.2,
+        "text": "I have the audit logs parsed. I'll finalize and email the signed SOC2 Type II audit package directly to Sarah by tomorrow afternoon.",
+        "confidence": 0.97,
+        "confidenceLabel": "High",
+        "speakerId": "spk-D",
+        "speakerLabel": "Person D",
+        "timestamp": "01:46",
+        "attributionConfidence": "High (0.94 Diarization Score)"
+      },
+      {
+        "id": "turn-8",
+        "start": 124,
+        "end": 139.5,
+        "text": "Decision agreed: we will use PostgreSQL 16 read replicas with Supabase connection pooler to eliminate webhook connection exhaustion.",
+        "confidence": 0.96,
+        "confidenceLabel": "High",
+        "speakerId": "spk-A",
+        "speakerLabel": "Person A",
+        "timestamp": "02:04",
+        "attributionConfidence": "High (0.94 Diarization Score)"
+      },
+      {
+        "id": "turn-9",
+        "start": 142.5,
+        "end": 158,
+        "text": "Wait, on last week's sync on September 12, Raj had initially mentioned delivery for Friday, but if there's any regression testing needed, could Monday work?",
+        "confidence": 0.91,
+        "confidenceLabel": "High",
+        "speakerId": "spk-C",
+        "speakerLabel": "Person C",
+        "timestamp": "02:22",
+        "attributionConfidence": "High (0.94 Diarization Score)"
+      },
+      {
+        "id": "turn-10",
+        "start": 161.2,
+        "end": 178.6,
+        "text": "Actually, to ensure thorough soak testing over the weekend with automated load tests, let's officially adjust delivery: Staging deployment on Friday, production sign-off moved to Monday morning.",
+        "confidence": 0.98,
+        "confidenceLabel": "High",
+        "speakerId": "spk-C",
+        "speakerLabel": "Person C",
+        "timestamp": "02:41",
+        "attributionConfidence": "High (0.94 Diarization Score)"
+      },
+      {
+        "id": "turn-11",
+        "start": 182,
+        "end": 194.5,
+        "text": "Agreed. Who is responsible for setting up the Datadog APM dashboard for latency monitoring?",
+        "confidence": 0.9,
+        "confidenceLabel": "High",
+        "speakerId": "spk-A",
+        "speakerLabel": "Person A",
+        "timestamp": "03:02",
+        "attributionConfidence": "High (0.94 Diarization Score)"
+      },
+      {
+        "id": "turn-12",
+        "start": 196.2,
+        "end": 208.4,
+        "text": "We definitely need visibility into p99 response times before the pilot starts.",
+        "confidence": 0.92,
+        "confidenceLabel": "High",
+        "speakerId": "spk-B",
+        "speakerLabel": "Person B",
+        "timestamp": "03:16",
+        "attributionConfidence": "High (0.94 Diarization Score)"
+      }
+    ],
+    "followUpTracker": [
+      {
+        "id": "act-1",
+        "task": "Complete Payment API Refactor & Push Idempotency Fixes to Staging",
+        "owner": "Person C (Raj Patel)",
+        "ownerRole": "Senior Backend Architect",
+        "deadline": "Friday at 5:00 PM EST",
+        "status": "Committed",
+        "speaker": "Person C (Raj Patel)",
+        "timestamp": "01:14",
+        "turnId": "turn-5",
+        "confidence": "High (Explicit Personal Commitment)",
+        "evidence": "Yes, I will complete the payment API refactor and push the idempotency fixes to staging by Friday at 5 PM EST."
+      },
+      {
+        "id": "act-2",
+        "task": "Finalize and Email Signed SOC2 Type II Audit Package to Sarah",
+        "owner": "Person D (Elena Rostova)",
+        "ownerRole": "Security & Compliance Lead",
+        "deadline": "Tomorrow afternoon",
+        "status": "Committed",
+        "speaker": "Person D (Elena Rostova)",
+        "timestamp": "01:46",
+        "turnId": "turn-7",
+        "confidence": "High (Explicit Personal Commitment)",
+        "evidence": "I have the audit logs parsed. I'll finalize and email the signed SOC2 Type II audit package directly to Sarah by tomorrow afternoon."
+      },
+      {
+        "id": "act-3",
+        "task": "Production Deployment & Automated Soak Testing Sign-off",
+        "owner": "Person C (Raj Patel)",
+        "ownerRole": "Senior Backend Architect",
+        "deadline": "Monday morning, Sept 22",
+        "status": "Committed",
+        "speaker": "Person C (Raj Patel)",
+        "timestamp": "02:41",
+        "turnId": "turn-10",
+        "confidence": "High (Revised Target)",
+        "isContradiction": true,
+        "evidence": "Actually, to ensure thorough soak testing over the weekend with automated load tests, let's officially adjust delivery: Staging deployment on Friday, production sign-off moved to Monday morning."
+      },
+      {
+        "id": "act-4",
+        "task": "Setup Datadog APM Latency & p99 Monitoring Dashboard",
+        "owner": "Needs Clarification",
+        "ownerRole": "Unassigned",
+        "deadline": "Not specified",
+        "status": "Needs Clarification",
+        "speaker": "Person A (Alex Rivera)",
+        "timestamp": "03:02",
+        "turnId": "turn-11",
+        "confidence": "Low (No Owner Assigned)",
+        "isUnresolved": true,
+        "evidence": "Agreed. Who is responsible for setting up the Datadog APM dashboard for latency monitoring?"
+      }
+    ]
+  },
+  "createdAt": "2026-09-18T16:00:03.806Z",
+  "updatedAt": "2026-09-18T16:00:09.191Z",
+  "transcriptionModel": "Whisper-large-v3 (Timestamped)",
+  "matchedSpeakers": [
+    {
+      "speakerId": "spk-A",
+      "label": "Person A",
+      "totalDurationSec": 55,
+      "turnCount": 4,
+      "sampleQuotes": [
+        "Thanks everyone for joining. Today we need to lock down the Q3 Stripe Billing integration and solve the webhook latency spikes we noticed on staging.",
+        "Raj, can you commit to refactoring the Redis distributed lock and verifying end-to-end sandbox payments before the Friday code freeze?"
+      ],
+      "embeddings": {
+        "model": "ECAPA-TDNN (SpeechBrain)",
+        "dimensions": 192,
+        "embeddingVector": [
+          0.09378826927721684,
+          -0.13738907537631995,
+          0.10922395695368094,
+          -0.0320455185713605,
+          -0.044517210562269795,
+          0.07833826278101579,
+          -0.06168547542690842,
+          0.021907794197578895,
+          0.0031358215223985476,
+          0.004553384676359536,
+          -0.029969289709498453,
+          0.038889914405636786,
+          -0.007617612100073184,
+          -0.054569022017629525,
+          0.10820732075235538,
+          -0.11092789650238151
+        ],
+        "pitchMeanHz": 148,
+        "energyMeanDb": -18.4,
+        "speakingRateWpm": 139
+      },
+      "possibleIdentity": "Person A (User / Host Lead)",
+      "voiceMatchScore": "87.4%",
+      "similarityMetric": 0.874,
+      "matchMethod": "ECAPA-TDNN Cosine Distance (3-Sample Enrolled Profile)",
+      "isUserMatch": true
+    },
+    {
+      "speakerId": "spk-B",
+      "label": "Person B",
+      "totalDurationSec": 41,
+      "turnCount": 3,
+      "sampleQuotes": [
+        "From our side, our enterprise pilot starts October 1st. If the payment API isn't reliable and compliant by next week, we risk delaying 4 major pilot accounts.",
+        "That sounds great. What about the SOC2 compliance export documentation our compliance team requested?"
+      ],
+      "embeddings": {
+        "model": "ECAPA-TDNN (SpeechBrain)",
+        "dimensions": 192,
+        "embeddingVector": [
+          0.039600632812266987,
+          -0.07154966686751556,
+          0.09092409239943766,
+          -0.0952984969718463,
+          0.0853225446301487,
+          -0.06450442121954389,
+          0.038488985445681294,
+          -0.013888373592927758,
+          -0.0031328243967415005,
+          0.0080702711418364,
+          0.0009095296635701131,
+          -0.022637182737745037,
+          0.05312808193552406,
+          -0.0864341919967344,
+          0.11581344382792773,
+          -0.135173432381063
+        ],
+        "pitchMeanHz": 149,
+        "energyMeanDb": -17.4,
+        "speakingRateWpm": 140
+      },
+      "possibleIdentity": "Unknown Participant",
+      "voiceMatchScore": "Not matched (Similarity < threshold)",
+      "similarityMetric": 0.32,
+      "matchMethod": "ECAPA-TDNN Cosine Distance",
+      "isUserMatch": false
+    },
+    {
+      "speakerId": "spk-C",
+      "label": "Person C",
+      "totalDurationSec": 61,
+      "turnCount": 4,
+      "sampleQuotes": [
+        "I looked at the webhook failure logs this morning. It's an idempotent lock contention on PostgreSQL connection pooling under concurrent retry bursts.",
+        "Yes, I will complete the payment API refactor and push the idempotency fixes to staging by Friday at 5 PM EST."
+      ],
+      "embeddings": {
+        "model": "ECAPA-TDNN (SpeechBrain)",
+        "dimensions": 192,
+        "embeddingVector": [
+          -0.018019619119691414,
+          0.0324464119483897,
+          -0.04171285195759206,
+          0.04473692968514613,
+          -0.04107474381324579,
+          0.03089275733606835,
+          -0.015023285224500233,
+          -0.005174224735677366,
+          0.027882551524695726,
+          -0.05106252346388306,
+          0.07261948120984185,
+          -0.09062522841335183,
+          0.10348449471354731,
+          -0.11010139873209451,
+          0.10997655148646154,
+          -0.10326254405464426
+        ],
+        "pitchMeanHz": 150,
+        "energyMeanDb": -16.4,
+        "speakingRateWpm": 141
+      },
+      "possibleIdentity": "Unknown Participant",
+      "voiceMatchScore": "Not matched (Similarity < threshold)",
+      "similarityMetric": 0.32,
+      "matchMethod": "ECAPA-TDNN Cosine Distance",
+      "isUserMatch": false
+    },
+    {
+      "speakerId": "spk-D",
+      "label": "Person D",
+      "totalDurationSec": 14,
+      "turnCount": 1,
+      "sampleQuotes": [
+        "I have the audit logs parsed. I'll finalize and email the signed SOC2 Type II audit package directly to Sarah by tomorrow afternoon."
+      ],
+      "embeddings": {
+        "model": "ECAPA-TDNN (SpeechBrain)",
+        "dimensions": 192,
+        "embeddingVector": [
+          -0.06543145894748151,
+          0.09587112188970841,
+          -0.08579243750415501,
+          0.04938991655604517,
+          -0.011736649782311086,
+          -0.005453833541966118,
+          -0.00455213306302772,
+          0.03020696604443634,
+          -0.0488518049799045,
+          0.0400965842005349,
+          0.0017452267334291578,
+          -0.06301722863290452,
+          0.11656660223695584,
+          -0.1352405282846478,
+          0.1059788933874856,
+          -0.037275134314824425
+        ],
+        "pitchMeanHz": 151,
+        "energyMeanDb": -15.399999999999999,
+        "speakingRateWpm": 142
+      },
+      "possibleIdentity": "Unknown Participant",
+      "voiceMatchScore": "Not matched (Similarity < threshold)",
+      "similarityMetric": 0.32,
+      "matchMethod": "ECAPA-TDNN Cosine Distance",
+      "isUserMatch": false
+    }
+  ],
+  "meetingId": "meet-upload-1789747209259",
+  "meetingCode": "G13-6PPYT"
+}

@@ -8,10 +8,39 @@ import confetti from 'canvas-confetti';
 
 const MeetingContext = createContext(null);
 
+const STORAGE_MEETINGS_KEY = 'g13_user_meetings';
+const STORAGE_ACTIONS_KEY = 'g13_user_actions';
+
 export const MeetingProvider = ({ children }) => {
-  const [meetings, setMeetings] = useState(INITIAL_MEETINGS);
-  const [activeMeeting, setActiveMeeting] = useState(INITIAL_MEETINGS[0]);
-  const [actions, setActions] = useState(INITIAL_ACTIONS);
+  // Initialize from persistent user storage, or clean empty state by default
+  const [meetings, setMeetings] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_MEETINGS_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
+  });
+
+  const [activeMeeting, setActiveMeeting] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_MEETINGS_KEY);
+      const parsed = saved ? JSON.parse(saved) : [];
+      return parsed.length > 0 ? parsed[0] : null;
+    } catch (e) {
+      return null;
+    }
+  });
+
+  const [actions, setActions] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_ACTIONS_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
+  });
+
   const [transcriptTurns, setTranscriptTurns] = useState([]);
   const [activeSpeakerId, setActiveSpeakerId] = useState(null);
   const [socketStatus, setSocketStatus] = useState('Ready');
@@ -104,6 +133,82 @@ export const MeetingProvider = ({ children }) => {
     );
   };
 
+  const registerCompletedMeeting = (newMeeting) => {
+    if (!newMeeting) return;
+
+    setMeetings((prev) => {
+      const exists = prev.some(m => m.id === newMeeting.id || m.code === newMeeting.code);
+      if (exists) {
+        return prev.map(m => (m.id === newMeeting.id || m.code === newMeeting.code) ? newMeeting : m);
+      }
+      return [newMeeting, ...prev];
+    });
+
+    setActiveMeeting(newMeeting);
+
+    if (newMeeting.transcript && Array.isArray(newMeeting.transcript)) {
+      setTranscriptTurns(newMeeting.transcript);
+    }
+
+    // Auto-sync extracted actions to Action Tracker
+    if (newMeeting.report?.actionItems && Array.isArray(newMeeting.report.actionItems)) {
+      const formattedActions = newMeeting.report.actionItems.map((item, idx) => ({
+        id: item.id || `act-upload-${Date.now()}-${idx}`,
+        task: item.task,
+        owner: item.owner || 'Needs Clarification',
+        deadline: item.deadline || 'Not specified',
+        status: item.status || 'Committed',
+        confidence: item.confidence || 'High',
+        speaker: item.speaker || 'Identified Speaker',
+        timestamp: item.timestamp || '00:00',
+        evidence: item.evidence || {
+          quote: item.evidence?.quote || item.task,
+          speaker: item.evidence?.speaker || item.speaker,
+          timestamp: item.evidence?.timestamp || item.timestamp
+        },
+        meetingTitle: newMeeting.title || 'Uploaded Meeting',
+        meetingDate: newMeeting.date || 'Today'
+      }));
+
+      setActions((prev) => {
+        const existingTasks = new Set(prev.map(a => a.task.toLowerCase().trim()));
+        const uniqueNew = formattedActions.filter(a => !existingTasks.has(a.task.toLowerCase().trim()));
+        return [...uniqueNew, ...prev];
+      });
+    }
+  };
+
+  // Auto-sync meetings & actions to persistent storage
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_MEETINGS_KEY, JSON.stringify(meetings));
+    } catch (e) {}
+  }, [meetings]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_ACTIONS_KEY, JSON.stringify(actions));
+    } catch (e) {}
+  }, [actions]);
+
+  const loadDemoMeeting = () => {
+    const demoMeet = { ...INITIAL_MEETINGS[0], isDemo: true };
+    setMeetings([demoMeet]);
+    setActiveMeeting(demoMeet);
+    setActions(INITIAL_ACTIONS.map(a => ({ ...a, isDemo: true })));
+  };
+
+  const clearAllMeetings = () => {
+    setMeetings([]);
+    setActiveMeeting(null);
+    setActions([]);
+    setTranscriptTurns([]);
+    try {
+      localStorage.removeItem(STORAGE_MEETINGS_KEY);
+      localStorage.removeItem(STORAGE_ACTIONS_KEY);
+    } catch (e) {}
+  };
+
   const startLiveSimulation = (onCommitment) => {
     setIsLiveActive(true);
     setTranscriptTurns([]);
@@ -167,7 +272,10 @@ export const MeetingProvider = ({ children }) => {
         closeContradiction,
         createMeeting,
         joinMeetingByCode,
+        registerCompletedMeeting,
         updateActionStatus,
+        loadDemoMeeting,
+        clearAllMeetings,
         startLiveSimulation,
         stopLiveSimulation
       }}

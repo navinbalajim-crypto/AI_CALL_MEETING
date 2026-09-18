@@ -26,10 +26,7 @@ export const AuthProvider = ({ children, onNavigate }) => {
       const loggedUser = await authService.login(email, password);
       setUser(loggedUser);
       setLoading(false);
-      // If user hasn't enrolled voice memory yet, direct them to voice onboarding!
-      if (!loggedUser.hasVoiceProfile && onNavigate) {
-        onNavigate('voice-onboarding');
-      } else if (onNavigate) {
+      if (onNavigate) {
         onNavigate('dashboard');
       }
       return loggedUser;
@@ -45,9 +42,8 @@ export const AuthProvider = ({ children, onNavigate }) => {
       const newUser = await authService.signup(name, email, password);
       setUser(newUser);
       setLoading(false);
-      // New user always goes to voice onboarding first
       if (onNavigate) {
-        onNavigate('voice-onboarding');
+        onNavigate('dashboard');
       }
       return newUser;
     } catch (err) {
@@ -61,9 +57,7 @@ export const AuthProvider = ({ children, onNavigate }) => {
     const demoUser = await authService.loginDemoUser();
     setUser(demoUser);
     setLoading(false);
-    if (!demoUser.hasVoiceProfile && onNavigate) {
-      onNavigate('voice-onboarding');
-    } else if (onNavigate) {
+    if (onNavigate) {
       onNavigate('dashboard');
     }
     return demoUser;
@@ -73,7 +67,7 @@ export const AuthProvider = ({ children, onNavigate }) => {
     authService.logout();
     setUser(null);
     if (onNavigate) {
-      onNavigate('landing');
+      onNavigate('auth');
     }
   };
 

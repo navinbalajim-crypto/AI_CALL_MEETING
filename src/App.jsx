@@ -54,6 +54,8 @@ function AppContent({ currentView, setCurrentView }) {
         setJoinModalOpen(true);
       } else if (rawHash && ['landing', 'auth', 'voice-onboarding', 'dashboard', 'live', 'upload', 'manual', 'report', 'actions', 'history', 'settings'].includes(rawHash)) {
         setCurrentView(rawHash);
+      } else if (!rawHash) {
+        setCurrentView('auth');
       }
     };
 
@@ -191,8 +193,12 @@ function AppContent({ currentView, setCurrentView }) {
 
 export function App() {
   const [currentView, setCurrentView] = useState(() => {
-    // If user has token, default to dashboard, else landing
-    return localStorage.getItem('g13_current_user') ? 'dashboard' : 'landing';
+    // Front page is Login Page by default!
+    const rawHash = window.location.hash.replace('#', '');
+    if (rawHash && ['auth', 'dashboard', 'live', 'upload', 'manual', 'report', 'actions', 'history', 'settings', 'voice-onboarding', 'landing'].includes(rawHash)) {
+      return rawHash;
+    }
+    return 'auth';
   });
 
   return (

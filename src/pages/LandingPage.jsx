@@ -56,14 +56,14 @@ export const LandingPage = ({ onNavigate, onOpenCreate, onLaunchDemo }) => {
 
         <div className="space-y-4 max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-display text-white leading-[1.1]">
-            From Conversation to <br />
+            Turn conversations <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-soft via-ai to-accent">
-              Accountable Action.
+              into action.
             </span>
           </h1>
 
           <p className="text-base sm:text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
-            Turn meetings into verified decisions, commitments, owners, deadlines, and evidence-backed follow-ups.
+            Upload a meeting recording and let AI extract the decisions, commitments, action items, speakers and key insights automatically.
           </p>
         </div>
 
@@ -73,21 +73,29 @@ export const LandingPage = ({ onNavigate, onOpenCreate, onLaunchDemo }) => {
             size="lg"
             variant="ai"
             icon={Zap}
-            onClick={onOpenCreate}
-            className="w-full sm:w-auto px-8"
+            onClick={() => onNavigate('upload')}
+            className="w-full sm:w-auto px-8 shadow-glow-ai font-bold"
           >
-            Create Meeting
+            Upload Meeting Audio
           </Button>
 
           <Button
             size="lg"
             variant="secondary"
-            icon={Play}
-            onClick={onLaunchDemo}
-            className="w-full sm:w-auto px-8"
+            icon={Clock}
+            onClick={() => onNavigate('history')}
+            className="w-full sm:w-auto px-8 text-slate-200"
           >
-            Explore Interactive Demo
+            View Previous Meetings
           </Button>
+
+          <button
+            onClick={onLaunchDemo}
+            className="text-xs text-slate-400 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 font-mono flex items-center gap-1.5 transition-colors"
+          >
+            <Play className="w-3 h-3 text-ai" />
+            <span>Interactive Demo</span>
+          </button>
         </div>
 
         {/* HERO VISUAL: SIGNATURE DYNAMIC TRANSFORMATION */}
